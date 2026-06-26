@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Life Planner</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="panel controls" aria-label="生活分數輸入">
+      <header class="panel-header">
+        <div>
+          <p class="eyebrow">Life Planner</p>
+          <h1>生活優先順序</h1>
+          <p class="hint">為 8 個面向打分，找出最值得先投入的地方。</p>
+        </div>
+        <button id="resetBtn" class="ghost-button" type="button">重設</button>
+      </header>
+
+      <div id="inputs" class="metric-list"></div>
+
+      <div class="button-row">
+        <button id="sampleBtn" class="secondary-button" type="button">載入範例</button>
+        <button id="saveBtn" class="primary-button" type="button">儲存目前分數</button>
+      </div>
+    </section>
+
+    <section class="content" aria-label="分析結果">
+      <section class="summary-grid" aria-label="摘要">
+        <article>
+          <span>第一優先</span>
+          <strong id="priorityName">-</strong>
+          <small id="priorityReason">-</small>
+        </article>
+        <article>
+          <span>最大槓桿</span>
+          <strong id="leverageName">-</strong>
+          <small id="leverageReason">-</small>
+        </article>
+        <article>
+          <span>整體狀態</span>
+          <strong id="overallScore">-</strong>
+          <small id="overallLabel">-</small>
+        </article>
+      </section>
+
+      <section class="panel action-panel">
+        <header class="section-header">
+          <div>
+            <h2>下週行動</h2>
+            <p>依照缺口和影響力排序，先做少數高回報項目。</p>
+          </div>
+        </header>
+        <ol id="actionList" class="action-list"></ol>
+      </section>
+
+      <section class="chart-grid">
+        <figure class="panel">
+          <figcaption>分數與改善優先度</figcaption>
+          <canvas id="scoreChart" width="760" height="360"></canvas>
+        </figure>
+        <figure class="panel">
+          <figcaption>面向之間的影響力</figcaption>
+          <canvas id="heatmap" width="760" height="360"></canvas>
+        </figure>
+      </section>
+
+      <section class="panel detail-panel">
+        <header class="section-header">
+          <div>
+            <h2>詳細判讀</h2>
+            <p>分數低且能帶動其他面向的項目，會排在更前面。</p>
+          </div>
+        </header>
+        <div id="detailRows" class="detail-rows"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
